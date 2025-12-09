@@ -233,7 +233,7 @@ Today there is 3 widly used options.
 
 Complex forces it to use the complex VT co-efficients, all forces it to deinterlace all frames (not just those flagged as interlaced - which the rawvideo won't be).  This is only required if you want to avoid your display solution deinterlacing.
 
-[QTGMC](http://avisynth.nl/index.php/QTGMC), which is an modern [AviSynth](http://avisynth.nl/index.php/Main_Page)/[VapourSynth](https://www.vapoursynth.com/) scriptable filter is not available in FFmpeg, but used with ease in tools like [Hybrid](https://web.archive.org/web/20230601152934/https://www.selur.de/downloads) which is cross platfrom & [StaxRip](https://github.com/staxrip/staxrip#readme) witch is windows based.
+QTGMC, which is an modern AviSynth/VapourSynth scriptable filter is not available in FFmpeg, but used with ease in tools like [Hybrid](https://web.archive.org/web/20230601152934/https://www.selur.de/downloads) which is cross platfrom & [StaxRip](https://github.com/staxrip/staxrip#readme) witch is windows based.
 
 
 ## Scaling & Resizing
@@ -252,7 +252,7 @@ If you want to scale to a standard resolution from 928x576 PAL or 760x488 NTSC c
 
 If you keep things interlaced then you may need a `-vf "scale=interl=1"` in the path to ensure 4:2:0 interlaced-aware chroma scaling.
 
-[AviSynth](http://avisynth.nl/index.php/Main_Page)/[VapourSynth](https://www.vapoursynth.com/) - Also have filters like Spline16 wich are widly used.
+AviSynth/VapourSynth - Also have filters like Spline16 wich are widly used.
 
 
 ## Tell FFmpeg the required output format

@@ -94,7 +94,7 @@ You can replace `ffv1` with `huffyuv` to use Huffyuv (another lossless intra cod
 # Deinterlacing and Encoding with FFmpeg
 
 
-59.94i material will look smoothest deinterlaced to 59.94p. Generally the best deinterlacer for this is [QTGMC](http://avisynth.nl/index.php/QTGMC), which is an AviSynth/VapourSynth script and is not available in FFmpeg, but used with ease in tools like [Hybrid](https://www.selur.de/downloads) which is cross platfrom & [StaxRip](https://github.com/staxrip/staxrip#readme) witch is windows based making automatic processing profiles possible to save time.
+59.94i material will look smoothest deinterlaced to 59.94p. Generally the best deinterlacer for this is QTGMC, which is an AviSynth/VapourSynth script and is not available in FFmpeg, but used with ease in tools like [Hybrid](https://www.selur.de/downloads) which is cross platform & [StaxRip](https://github.com/staxrip/staxrip#readme) witch is windows based making automatic processing profiles possible to save time.
 
 A fair substitute using FFmpeg-only filters is:
 
@@ -120,7 +120,7 @@ Caveat: not all telecined sources are easy to work with. If there was mishandlin
 # Advanced Filtering with VapourSynth
 
 
-Here are simple scripts for [VapourSynth](http://www.vapoursynth.com/), a powerful cross-platform video processing framework. Refer to the lossless export section above for getting your source ready for processing with VapourSynth.
+Simple scripts for VapourSynth are available (a powerful cross-platform video processing framework). Refer to the lossless export section above for getting your source ready for processing with VapourSynth.
 
 
 ### 59.94i Material
