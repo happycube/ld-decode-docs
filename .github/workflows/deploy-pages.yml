@@ -45,7 +45,7 @@ jobs:
           ALLOWLIST=("https://github.com/happycube/ld-decode")
           
           # Find external links and extract just the URL (remove ]( prefix and ) suffix)
-          EXTERNAL_LINKS=$(grep -oE '\]\(https?://[^)]+\)' wiki-default/Sidebar.md | cut -c3- | sed 's/)$//')
+          EXTERNAL_LINKS=$(grep -oE '\]\(https?://[^)]+\)' wiki-default/Sidebar.md | cut -c3- | sed 's/)$//' || true)
           
           # Filter out allowlisted URLs
           FILTERED_LINKS=""
@@ -59,8 +59,7 @@ jobs:
               fi
             done
             if [[ "$skip" == false ]]; then
-              FILTERED_LINKS+="$url
-"
+              FILTERED_LINKS+="$url"$'\n'
             fi
           done < <(echo "$EXTERNAL_LINKS")
           
