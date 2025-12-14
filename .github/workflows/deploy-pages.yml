@@ -41,19 +41,41 @@ jobs:
           fi
           
           # Extract all markdown links from Sidebar.md and check for external URLs
-          # Look for patterns like [text](http:// or [text](https://
-          if grep -oE '\]\(https?://[^)]+\)' wiki-default/Sidebar.md > /dev/null; then
+          # Allowlist specific external links (project GitHub)
+          ALLOWLIST=("https://github.com/happycube/ld-decode")
+          
+          # Find external links and extract just the URL (remove ]( prefix and ) suffix)
+          EXTERNAL_LINKS=$(grep -oE '\]\(https?://[^)]+\)' wiki-default/Sidebar.md | cut -c3- | sed 's/)$//')
+          
+          # Filter out allowlisted URLs
+          FILTERED_LINKS=""
+          while IFS= read -r url; do
+            [[ -z "$url" ]] && continue
+            skip=false
+            for allowed in "${ALLOWLIST[@]}"; do
+              if [[ "$url" == "$allowed" ]]; then
+                skip=true
+                break
+              fi
+            done
+            if [[ "$skip" == false ]]; then
+              FILTERED_LINKS+="$url
+"
+            fi
+          done < <(echo "$EXTERNAL_LINKS")
+          
+          if [[ -n "$FILTERED_LINKS" ]]; then
             echo "❌ ERROR: External links found in navigation sidebar!"
             echo ""
-            echo "The following external links were detected:"
-            grep -oE '\]\(https?://[^)]+\)' wiki-default/Sidebar.md
+            echo "The following external links were detected (excluding allowlist):"
+            echo "$FILTERED_LINKS"
             echo ""
             echo "External links in the navigation are not allowed - Deployment failed"
             echo "Please create local placeholder pages and link to those instead."
             exit 1
           fi
           
-          echo "✓ Navigation validation passed - no external links found"
+          echo "✓ Navigation validation passed - no disallowed external links found"
       
       - name: Check internal markdown links
         run: |

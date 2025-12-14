@@ -1,4 +1,5 @@
-- [Home](index.md)
+- [Documentation Home](index.md)
+- [ld-decode GitHub](https://github.com/happycube/ld-decode)
 
 ## Installation
 
@@ -9,11 +10,7 @@
 ## The Decode Family
 
 - [LaserDisc Decode](index.md)
-- [VHS (Tape Media) Decode](Related-Projects/VHS-Decode.md)
-- [Composite (CVBS) Decode](Related-Projects/CVBS-Decode.md)
-- [HiFi Decode](Related-Projects/HiFi-Decode.md)
-- [CD Decode](Related-Projects/CD-Decode.md)
-- [MUSE Decode](Related-Projects/MUSE-Decode.md)
+- [Other Decoders](Related-Projects/Other-Decoders.md)
 
 ## Hardware
 
